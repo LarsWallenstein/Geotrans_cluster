@@ -10,7 +10,7 @@ For the record, it was intended to be for public usage in this form, as it is a 
 Run the following to install:
 
 '''python'''
-    pip install geotrans_cluster
+    pip install geot_cluster
 
 
 ## Usage
@@ -42,10 +42,10 @@ Before using make sure, that your dataset corresponds with requirements. Csv fil
     from timezonefinder  import TimezoneFinder
     from IPython.display import clear_output
 
-    import geotrans_cluster
+    import geot_cluster
 
     path = [path to file with data]
-    data, names = data_load(path)
+    data, names = geot_cluster.data_load(path)
 
 
     %matplotlib notebook
@@ -58,17 +58,17 @@ Before using make sure, that your dataset corresponds with requirements. Csv fil
 
 
     if(archivate):
-        archivate_maps(data, names, levels=4)
+        geot_cluster.archivate_maps(data, names, levels=4)
 
     if(libs):
-        lib = graph_preparation(data, names, base) # создание ориентировочной библиотеки знакомств
-        prob_lib = znakomstvo_by_lib(lib,data) # расчёт вероятностей для библиотеки
+        lib = geot_cluster.graph_preparation(data, names, base) # создание ориентировочной библиотеки знакомств
+        prob_lib = geot_cluster.znakomstvo_by_lib(lib,data) # расчёт вероятностей для библиотеки
 
 
-    lib, prob_lib = load_libs(base = base)
+    lib, prob_lib = geot_cluster.load_libs(base = base)
     print("Libs loaded")
     if(graph_f):
-        graph = graph_forming(lib, prob_lib, treshold=0.9)
+        graph = geot_cluster.graph_forming(lib, prob_lib, treshold=0.9)
     print("Graph formed")
 
     if(cluster_f):
@@ -76,8 +76,8 @@ Before using make sure, that your dataset corresponds with requirements. Csv fil
         print("Clustered")
         clusters = mc.get_clusters(result)
 
-        clust_0 = clusters_to_ids(lib=lib, prob_lib=prob_lib, clusters = clusters, number = 0)
-        maps = get_cluster_maps(data = data, clust = clust_0)
+        clust_0 = geot_cluster.clusters_to_ids(lib=lib, prob_lib=prob_lib, clusters = clusters, number = 0)
+        maps = geot_cluster.get_cluster_maps(data = data, clust = clust_0)
         print("Number of clusters", len(clusters))
 
         plt.figure(figsize=(10,10))
