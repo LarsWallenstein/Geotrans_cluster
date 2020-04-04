@@ -17,11 +17,11 @@ Run the following to install:
 
 Before using make sure, that your dataset corresponds with requirements. Csv file must contain the following columns in order to work correctly
 
-*user_id   :   string type, example: "423156821"
-*event_dt  :   string type, example: "20190312"
-*event_time:   string type, example: "2019-03-12 06:24:00.279"
-*lattitude :   float  type, example: 49.862621
-*longtitude:   see lattitude
+* user_id   :   string type, example: "423156821"
+* event_dt  :   string type, example: "20190312"
+* event_time:   string type, example: "2019-03-12 06:24:00.279"
+* lattitude :   float  type, example: 49.862621
+* longtitude:   see lattitude
 
 '''python
 
