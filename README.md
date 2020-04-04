@@ -1,4 +1,4 @@
-#GeoTrans_cluster
+# GeoTrans_cluster
 
 Name of the module stands for geographical transactions clustering. This module is an implementation of the method, developed for the third course project in HSE University. It takes dataframe with clients transactions history of the
 specified format and returns list of clusters.
@@ -9,9 +9,9 @@ For the record, it was intended to be for public usage in this form, as it is a 
 
 Run the following to install:
 
-'''python
-pip install geotrans_cluster
-'''
+'''python'''
+    pip install geotrans_cluster
+
 
 ## Usage
 
