@@ -1,4 +1,4 @@
-# GeoTrans_cluster
+# Geographical Transctions clustering algorithm
 
 Name of the module stands for geographical transactions clustering. This module is an implementation of the method, developed for the third course project in HSE University. It takes dataframe with clients transactions history of the
 specified format and returns list of clusters.
