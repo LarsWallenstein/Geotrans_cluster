@@ -25,24 +25,9 @@ Before using make sure, that your dataset corresponds with requirements. Csv fil
 
 '''python
 
-    import pandas as pd
-    import numpy  as np
-    import markov_clustering as mc
-    import matplotlib.pyplot as plt
-    import math
-    import pytz
-    import folium
-    import os.path
-    import networkx as nx
-
-
-    from haversine       import haversine, Unit
-    from collections     import Counter
-    from datetime        import datetime
-    from timezonefinder  import TimezoneFinder
-    from IPython.display import clear_output
-
     import geot_cluster
+    import markov_clustering as mc
+    
 
     path = [path to file with data]
     data, names = geot_cluster.data_load(path)
