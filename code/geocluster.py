@@ -964,7 +964,7 @@ def graph_preparation(data, names, base):
     """
     names_pairs = [(i, j) for i in names for j in names if i<j]
     
-    f = np.load("/home/lars/kek/"+names_pairs[0][0]+".npz",allow_pickle = True)
+    f = np.load(base+names_pairs[0][0]+".npz",allow_pickle = True)
     
     last_u = names_pairs[0][0]
     
@@ -995,12 +995,12 @@ def graph_preparation(data, names, base):
                     library_znakomstv[last_u] = set(tmp_mas)
                 tmp_mas = []
                 
-                f = np.load("/home/lars/kek/"+u1+".npz",allow_pickle = True)
+                f = np.load(base+u1+".npz",allow_pickle = True)
                 last_u = u1
                 u1m = f['arr_0']
                 u1p = f['arr_2']
                 
-            f = np.load("/home/lars/kek/"+u2+".npz",allow_pickle = True)
+            f = np.load(base+u2+".npz",allow_pickle = True)
             u2m = f['arr_0']
             u2p = f['arr_2']
             
@@ -1195,7 +1195,7 @@ def znakomstvo_lib(data, uid1, uid2, base="/home/lars/kek/",low_level_border = 1
         print("p2", p2)
     return round((p1+p2),2)
 
-def znakomstvo_by_lib(lib, data, aging=False, sq=True, re_c=False, pairs=5):
+def znakomstvo_by_lib(lib, data, base, aging=False, sq=True, re_c=False, pairs=5):
     """
     Calculating probabilities for people of knowing each other from pre-estimated library of meeting
     
@@ -1233,7 +1233,7 @@ def znakomstvo_by_lib(lib, data, aging=False, sq=True, re_c=False, pairs=5):
         num+=1
         tmp = []
         for v in lib[k]:
-            tmp.append(znakomstvo_lib(data, k, v, base="/home/lars/kek/",aging=aging, 
+            tmp.append(znakomstvo_lib(data, k, v, base=base,aging=aging, 
                                       sq=sq, re_c=re_c, pairs=pairs))
         prob_lib[k] = tmp[:]
         
