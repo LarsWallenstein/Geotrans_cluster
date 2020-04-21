@@ -589,7 +589,10 @@ def archivate_maps(data, names, base = "/home/lars/kek/",level  = 1,levels = 4,b
 
         else:
             print("lol",i)
-    
+            
+def path_check(uid,base="/content/drive/My Drive/"):
+  return os.path.exists(base+uid+'.npz')
+               
 
 def load_maps(uid, base="/home/lars/kek/"):
     """
@@ -1248,13 +1251,13 @@ def load_libs(base="/home/lars/kek"):
     
     
     """
-    f = np.load(base+"/lib_keys"+".npz",allow_pickle = True)
+    f = np.load(base+"lib_keys"+".npz",allow_pickle = True)
     lib_keys = f['arr_0']
-    f = np.load(base+"/lib_values"+".npz",allow_pickle = True)
+    f = np.load(base+"lib_values"+".npz",allow_pickle = True)
     lib_values = f['arr_0']
-    f = np.load(base+"/prob_lib_keys"+".npz",allow_pickle = True)
+    f = np.load(base+"prob_lib_keys"+".npz",allow_pickle = True)
     prob_lib_keys = f['arr_0']
-    f = np.load(base+"/prob_lib_values"+".npz",allow_pickle = True)
+    f = np.load(base+"prob_lib_values"+".npz",allow_pickle = True)
     prob_lib_values = f['arr_0']
     
     lib = {k:v for k,v in zip(lib_keys,lib_values)}
