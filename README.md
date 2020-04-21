@@ -43,20 +43,18 @@ Before using make sure, that your dataset corresponds with requirements. Csv fil
 
 
     if(archivate):
-        geot_cluster.archivate_maps(data, names, levels=4)
+        geot_cluster.archivate_maps(data, names, base, levels=4)
 
     if(libs):
         lib = geot_cluster.graph_preparation(data, names, base) # создание ориентировочной библиотеки знакомств
-        prob_lib = geot_cluster.znakomstvo_by_lib(lib,data) # расчёт вероятностей для библиотеки
+        prob_lib = geot_cluster.znakomstvo_by_lib(lib,data, base) # расчёт вероятностей для библиотеки
 
-
-    lib, prob_lib = geot_cluster.load_libs(base = base)
     print("Libs loaded")
     if(graph_f):
         graph = geot_cluster.graph_forming(lib, prob_lib, treshold=0.9)
     print("Graph formed")
 
-    if(cluster_f):
+    if(cluster_f and len(lib)>0):
         result = mc.run_mcl(graph,pruning_threshold=0.7, inflation=2,expansion=2) 
         print("Clustered")
         clusters = mc.get_clusters(result)
